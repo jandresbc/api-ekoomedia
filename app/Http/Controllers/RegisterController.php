@@ -15,7 +15,7 @@ class RegisterController extends Controller
     public function register(Request $request){
         $nick = explode("@",$request["email"]);
 
-        $val = Registros::where("nickname",$nick)->exists();
+        $val = Registros::where("nickname",$nick[0])->exists();
 
         if(!$val){
             $registro = Registros::create([
